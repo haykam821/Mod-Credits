@@ -1,0 +1,23 @@
+{
+	"schemaVersion": 1,
+	"id": "modcredits",
+	"version": "${version}",
+	"name": "Mod Credits",
+	"description": "Adds mod authorship information to the credits.",
+	"authors": [
+		"haykam821"
+	],
+	"contact": {
+		"homepage": "https://github.com/haykam821/Mod-Credits#readme",
+		"issues": "https://github.com/haykam821/Mod-Credits/issues"
+	},
+	"environment": "client",
+	"mixins": [
+		"modcredits.mixin.json"
+	],
+	"license": "MIT",
+	"icon": "assets/modcredits/icon.png",
+	"depends": {
+		"fabricloader": ">=0.4.0"
+	}
+}
