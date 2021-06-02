@@ -2,8 +2,10 @@
 	"required": true,
 	"package": "io.github.haykam821.modcredits.mixin",
 	"compatibilityLevel": "JAVA_8",
+	"plugin": "io.github.haykam821.modcredits.mixin.ModCreditsMixinConfigPlugin",
 	"client": [
-		"CreditsScreenMixin"
+		"CreditsScreenMixin116",
+		"CreditsScreenMixin117"
 	],
 	"injectors": {
 		"defaultRequire": 1

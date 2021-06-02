@@ -19,7 +19,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 
 @Mixin(CreditsScreen.class)
-public class CreditsScreenMixin {
+public class CreditsScreenMixin116 {
 	@Unique
 	private static final MinecraftClient CLIENT = MinecraftClient.getInstance();
 
@@ -27,7 +27,7 @@ public class CreditsScreenMixin {
 	private List<OrderedText> credits;
 
 	@Shadow
-	private IntSet field_24261;
+	private IntSet centeredLines;
 
 	@Inject(method = "init", at = @At(value = "INVOKE", target = "Ljava/io/InputStream;close()V"))
 	private void addModCredits(CallbackInfo ci) {
@@ -40,9 +40,9 @@ public class CreditsScreenMixin {
 		this.credits.add(new LiteralText("Mod Developers").formatted(Formatting.YELLOW).asOrderedText());
 		this.credits.add(new LiteralText("============").asOrderedText());
 
-		this.field_24261.add(this.credits.size() - 1);
-		this.field_24261.add(this.credits.size() - 2);
-		this.field_24261.add(this.credits.size() - 3);
+		this.centeredLines.add(this.credits.size() - 1);
+		this.centeredLines.add(this.credits.size() - 2);
+		this.centeredLines.add(this.credits.size() - 3);
 
 		this.credits.add(new LiteralText("").asOrderedText());
 
