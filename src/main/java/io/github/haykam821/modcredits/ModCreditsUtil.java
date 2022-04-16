@@ -14,6 +14,8 @@ import net.minecraft.util.Formatting;
 
 public class ModCreditsUtil {
 	private static final boolean IS_117 = ModCreditsMixinConfigPlugin.is117();
+	private static final boolean IS_117_2 = ModCreditsMixinConfigPlugin.is1172();
+
 	private static final String SPACE_116 = "          ";
 	private static final String SPACE_117 = "           ";
 
@@ -43,7 +45,7 @@ public class ModCreditsUtil {
 	}
 
 	private static void addNameText(String name, Formatting formatting, List<Text> credits) {
-		if (IS_117) {
+		if (IS_117 && !IS_117_2) {
 			credits.add(LiteralText.EMPTY);
 		}
 

@@ -11,23 +11,22 @@ import io.github.haykam821.modcredits.ModCreditsUtil;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.CreditsScreen;
 import net.minecraft.text.LiteralText;
-import net.minecraft.text.StringVisitable;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 
 @Mixin(CreditsScreen.class)
-public abstract class CreditsScreenMixin117 {
+public abstract class CreditsScreenMixin1172 {
 	@Unique
 	private static final MinecraftClient CLIENT = MinecraftClient.getInstance();
 
-	@Shadow(remap = false)
-	private static StringVisitable field_33955;
+	@Shadow
+	private static Text SEPARATOR_LINE;
 
 	@Shadow
 	private static String CENTERED_LINE_PREFIX;
 
-	@Shadow(remap = false)
-	protected abstract void method_37304(StringVisitable text, boolean centered);
+	@Shadow
+	protected abstract void addText(Text text, boolean centered);
 
 	@Shadow
 	protected abstract void addEmptyLine();
@@ -35,12 +34,9 @@ public abstract class CreditsScreenMixin117 {
 	@Inject(method = "init", at = @At(value = "INVOKE", target = "Ljava/util/List;size()I"))
 	private void addModCredits(CallbackInfo ci) {
 		// Header
-		this.method_37304(field_33955, true);
-		this.addEmptyLine();
-		this.method_37304(new LiteralText("Mod Developers").formatted(Formatting.YELLOW), true);
-		this.addEmptyLine();
-		this.method_37304(field_33955, true);
-		this.addEmptyLine();
+		this.addText(SEPARATOR_LINE, true);
+		this.addText(new LiteralText("Mod Developers").formatted(Formatting.YELLOW), true);
+		this.addText(SEPARATOR_LINE, true);
 		this.addEmptyLine();
 		this.addEmptyLine();
 
@@ -49,7 +45,7 @@ public abstract class CreditsScreenMixin117 {
 			if (line == LiteralText.EMPTY) {
 				this.addEmptyLine();
 			} else {
-				this.method_37304(line, false);
+				this.addText(line, false);
 			}
 		}
 	}

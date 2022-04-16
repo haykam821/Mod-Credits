@@ -22,8 +22,10 @@ public class ModCreditsMixinConfigPlugin implements IMixinConfigPlugin {
 	private static final String MIXIN_CLASS_PREFIX = "io.github.haykam821.modcredits.mixin.";
 	private static final String MIXIN_CLASS_1_16 = MIXIN_CLASS_PREFIX + "CreditsScreenMixin116";
 	private static final String MIXIN_CLASS_1_17 = MIXIN_CLASS_PREFIX + "CreditsScreenMixin117";
+	private static final String MIXIN_CLASS_1_17_2 = MIXIN_CLASS_PREFIX + "CreditsScreenMixin1172";
 
 	private static final Predicate<Version> IS_1_17 = createVersionCompatibility(">=1.17-beta.1");
+	private static final Predicate<Version> IS_1_17_2 = createVersionCompatibility(">=1.17-beta.4");
 
 	@Override
 	public void onLoad(String mixinPackage) {
@@ -40,7 +42,9 @@ public class ModCreditsMixinConfigPlugin implements IMixinConfigPlugin {
 		if (mixinClass.equals(MIXIN_CLASS_1_16)) {
 			return !is117();
 		} else if (mixinClass.equals(MIXIN_CLASS_1_17)) {
-			return is117();
+			return is117() && !is1172();
+		} else if (mixinClass.equals(MIXIN_CLASS_1_17_2)) {
+			return is1172();
 		}
 
 		return true;
@@ -68,6 +72,10 @@ public class ModCreditsMixinConfigPlugin implements IMixinConfigPlugin {
 
 	public static boolean is117() {
 		return IS_1_17.test(getMinecraftVersion());
+	}
+
+	public static boolean is1172() {
+		return IS_1_17_2.test(getMinecraftVersion());
 	}
 
 	private static Version getMinecraftVersion() {

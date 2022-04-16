@@ -5,7 +5,8 @@
 	"plugin": "io.github.haykam821.modcredits.mixin.ModCreditsMixinConfigPlugin",
 	"client": [
 		"CreditsScreenMixin116",
-		"CreditsScreenMixin117"
+		"CreditsScreenMixin117",
+		"CreditsScreenMixin1172"
 	],
 	"injectors": {
 		"defaultRequire": 1
