@@ -15,6 +15,7 @@ import net.minecraft.text.StringVisitable;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 
+@SuppressWarnings("target")
 @Mixin(CreditsScreen.class)
 public abstract class CreditsScreenMixin117 {
 	@Unique
